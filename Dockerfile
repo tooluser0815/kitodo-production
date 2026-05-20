@@ -6,7 +6,7 @@ COPY . .
 RUN mvn clean package -DskipTests -Dmaven.test.skip=true
 
 # Runtime Image - Tomcat mit Java
-FROM tomcat:9-jre17-jammy
+FROM tomcat:9.0-jre17-temurin-jammy
 
 # Kopiere gebaute WAR-Datei
 COPY --from=builder /build/Kitodo/target/kitodo*.war /usr/local/tomcat/webapps/ROOT.war
