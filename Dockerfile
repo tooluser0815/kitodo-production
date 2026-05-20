@@ -2,9 +2,7 @@
 FROM maven:3.9-eclipse-temurin-17 AS builder
 
 WORKDIR /build
-COPY pom.xml .
-RUN mvn dependency:resolve
-
+# Kopiere ALLE Dateien (nicht nur pom.xml)
 COPY . .
 RUN mvn clean package -DskipTests -Dmaven.test.skip=true
 
